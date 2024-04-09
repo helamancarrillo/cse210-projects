@@ -24,6 +24,7 @@ public class RecordManager
     {
 
         Console.WriteLine("Welcome to the Athlete Record Calculator");
+        Console.WriteLine();
 
         bool running = true;
 
@@ -37,7 +38,7 @@ public class RecordManager
             Console.WriteLine("5. Exit");
             
 
-            Console.Write("Enter your choice: ");
+            Console.Write("Enter your number choice: ");
             string choice = Console.ReadLine();
 
             switch (choice)
@@ -188,7 +189,9 @@ public class RecordManager
     {
         Console.WriteLine("What is the name of the file? ");
         string file = Console.ReadLine();
-
+        
+        ShowSpinner(3);
+        
 
         using (StreamWriter outputFile = new StreamWriter(file))
         {
@@ -200,12 +203,17 @@ public class RecordManager
             }
                                    
         }
+
+        Console.WriteLine($"Your information have been saved in {file}.");
     }
     public void LoadRecord()
     {
         Console.WriteLine("What is the name of the file? ");
         string file = Console.ReadLine();
         string[] lines = File.ReadAllLines(file);
+  
+        ShowSpinner(3);
+
         foreach (string line in lines)
         {
             Console.WriteLine(line);
@@ -213,11 +221,60 @@ public class RecordManager
     }
     public void DisplayRecords()
     {
+        ShowCountDown(3);
         foreach (Athlete athlete in _records )
         {
             Console.WriteLine(athlete.Record()); 
         }
         
     }
+
+    public void ShowSpinner(int seconds)
+    {
+        List<string> animationStrings = new List<string>();
+
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+        animationStrings.Add("|");
+        animationStrings.Add("/");
+        animationStrings.Add("-");
+        animationStrings.Add("\\");
+
+        DateTime startTime = DateTime.Now; 
+        DateTime endTime = startTime.AddSeconds(seconds);
+
+        int i = 0;
+
+        while (DateTime.Now < endTime) 
+        {
+            string s = animationStrings[i];
+            Console.Write(s);
+            Thread.Sleep(100);
+            Console.Write("\b \b");
+
+            i++; 
+
+            if (i >= animationStrings.Count)
+            {
+                i = 0;
+            }
+
+        } 
+
     }
+
+    public void ShowCountDown(int seconds)
+    {
+        for (int c = seconds; c > 0; c--)
+        {
+            Console.Write(c);
+            Thread.Sleep(1000);
+            Console.Write("\b \b"); 
+
+        }
+
+    }
+}
  

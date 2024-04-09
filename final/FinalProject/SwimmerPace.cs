@@ -25,12 +25,12 @@ public class SwimmerPace : Athlete
 
         float pace = distance / _timeInMinutes; 
 
-        double speedrounded = pace;
+        double speedRounded = pace;
         int decimalPlaces = 2;
 
-        double roundedPace = Math.Round(speedrounded, decimalPlaces);
+        double roundedPace = Math.Round(speedRounded, decimalPlaces);
 
-        string save = $"At {_age} years old, {_name} has achieve a personal swimming pace record of {roundedPace} mpk. ";
+        string save = $"At {_age} years old, {_name} has achieved a personal swimming pace record of {roundedPace} mpk. ";
 
         return save; 
     }

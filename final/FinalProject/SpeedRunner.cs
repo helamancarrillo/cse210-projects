@@ -20,12 +20,12 @@ public class SpeedRunner : Athlete
     public override string Record()
     {
         float speed = _distanceInMeters / _timeInMinutes; 
-        double speedrounded = speed;
+        double speedRounded = speed;
         int decimalPlaces = 2;
 
-        double roundedSpeed = Math.Round(speedrounded, decimalPlaces);
+        double roundedSpeed = Math.Round(speedRounded, decimalPlaces);
 
-        string save = $"At {_age} years old, {_name} has achieve a personal speed running record of: {roundedSpeed} mph.";
+        string save = $"At {_age} years old, {_name} has achieved a personal speed running record of: {roundedSpeed} mph.";
 
         
         return save; 

@@ -19,7 +19,7 @@ public class Athlete
 
     public virtual string Record()
     {
-        string introduction = $"At {_age} years old, {_name} has achieve a personal"; 
+        string introduction = $"At {_age} years old, {_name} has achieved a personal"; 
         //Console.WriteLine($"{introduction} speed record of: {speed} mph.");
         return introduction; 
     

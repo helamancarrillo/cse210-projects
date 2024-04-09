@@ -22,12 +22,12 @@ public class Boxer : Athlete
     {
         float force = _mass * _acceleration; 
 
-        double speedrounded = force;
+        double speedRounded = force;
         int decimalPlaces = 2;
 
-        double roundedForce = Math.Round(speedrounded, decimalPlaces);
+        double roundedForce = Math.Round(speedRounded, decimalPlaces);
 
-        string save = $"At {_age} years old, {_name} has achieve a personal force boxing record of {roundedForce} N. ";
+        string save = $"At {_age} years old, {_name} has achieved a personal force boxing record of {roundedForce} N. ";
 
         return save; 
     }
